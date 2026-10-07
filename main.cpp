@@ -4,7 +4,7 @@
 #include <vector>
 #include "pixel.h"
 
-
+//This function will 
 void average_colors(std::vector<Pixel> &pixel_list, int counter){
 	float averageR = 0, averageG = 0, averageB = 0;
 	for(int i = 0; i < counter; i++){
@@ -20,11 +20,13 @@ void average_colors(std::vector<Pixel> &pixel_list, int counter){
 	averageG = averageG/counter;
 	averageB = averageB/counter;
 
-	std::cout << averageR << "\n" << std::endl;
-	std::cout << averageB << "\n" << std::endl;
-	std::cout << averageG << "\n" <<std::endl;
-}
+	std::cout << averageR << " is the average of R values\n" << std::endl;
+	std::cout << averageB << " is the average of B values\n" << std::endl;
+	std::cout << averageG << " is the average of G values\n" <<std::endl;
 
+}
+//This function will flip every y value in the vector vertically.
+//I needed to add counter to the parameter, as i thought it was easier.
 void flip_vertically(std::vector<Pixel> &pixel_list, int counter){
 	for(int i = 0; i < counter/2; i++){
 		int origin = 0;
@@ -32,8 +34,6 @@ void flip_vertically(std::vector<Pixel> &pixel_list, int counter){
 	       	pixel_list[i].y = pixel_list[counter - 1 - i].y;
 		pixel_list[counter - 1 - i].y = origin;
 	}
-	std::cout << pixel_list[0].y << "\n" << std::endl;
-	std::cout << pixel_list[counter - 1].y << "\n" << std::endl;
 }
 
 		
@@ -96,6 +96,7 @@ int main(int arg, char *argv[]){
 		line_counter++;
 
 		}
+
 	//Average Colors call
 	average_colors(pixel_list, line_counter);
 	
