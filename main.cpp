@@ -22,7 +22,7 @@ void average_colors(std::vector<Pixel> &pixel_list, int counter){
 
 	std::cout << averageR << "\n" << std::endl;
 	std::cout << averageB << "\n" << std::endl;
-	std::cout << averageR << "\n" <<std::endl;
+	std::cout << averageG << "\n" <<std::endl;
 }
 
 void flip_vertically(std::vector<Pixel> &pixel_list, int counter){
@@ -55,7 +55,7 @@ int main(int arg, char *argv[]){
 	}
 	//Loop to read files and seperation
 	std::string line;
-	int line_counter;
+	int line_counter = 0;
 	while(std::getline(file, line)){
 		unsigned int start = 0;
 		
@@ -79,10 +79,8 @@ int main(int arg, char *argv[]){
 		std::string gString = line.substr(start, comma - start);
 		start = comma + 1 ;
 
-		//Seperation for B
-		comma = line.find(',', start);
-		std::string bString = line.substr(start, comma - start);
-		start = comma + 1;
+		//Seperation for B. Find() will not get another comma
+		std::string bString = line.substr(start);
 		
 		//Conversions + Adding to Pixel_List
 		//We can pass a container into Pixel_list with Pushback
